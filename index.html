@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FFire - Ultimate Rewards</title>
+    <title>FFire - White Theme</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Rajdhani:wght@500;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Rajdhani', sans-serif; overflow: hidden; user-select: none; background: #000; }
+        body { font-family: 'Rajdhani', sans-serif; overflow: hidden; user-select: none; background: #f3f4f6; color: #1f2937; }
         .font-anton { font-family: 'Anton', sans-serif; }
 
         /* === 1. BACKGROUND CONFIG === */
@@ -26,13 +26,20 @@
         .character-img {
             height: 95%; 
             object-fit: contain;
-            filter: drop-shadow(0 0 20px rgba(0,0,0,0.8));
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
         }
 
-        /* UI STYLES */
+        /* UI STYLES - WHITE THEME */
         .skew-box { transform: skewX(-15deg); }
         .unskew { transform: skewX(15deg); }
-        .glass { background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        
+        /* White Glass Effect */
+        .glass { 
+            background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
         
         /* ANIMATIONS */
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
@@ -43,18 +50,20 @@
 
         .glow-gold { box-shadow: 0 0 30px #FFD700; border: 2px solid #FFD700; }
         
-        /* Item Card Styling */
+        /* Light Theme Reward Card */
         .reward-card {
-            background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, rgba(0,0,0,0) 70%);
+            background: radial-gradient(circle, rgba(255,215,0,0.2) 0%, rgba(255,255,255,0) 70%);
         }
     </style>
 </head>
-<body class="h-screen w-screen relative text-white">
+<body class="h-screen w-screen relative text-gray-900">
 
     <!-- BACKGROUND LAYER -->
     <div id="game-bg" class="lobby-bg"></div>
-    <!-- Vignette -->
-    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/40 z-0"></div>
+    
+    <!-- White Overlay for Day Mode -->
+    <div class="absolute inset-0 bg-white/30 backdrop-blur-[1px] z-0"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-white/20 z-0"></div>
 
     <!-- CHARACTER LAYER -->
     <div class="character-container">
@@ -67,25 +76,25 @@
         <!-- HEADER -->
         <div class="flex justify-between items-start pointer-events-auto">
             <!-- Profile -->
-            <div class="flex items-center gap-3 glass p-2 pr-6 rounded-br-2xl border-l-4 border-yellow-500">
-                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Pro" class="w-12 h-12 bg-gray-800 rounded border border-gray-600">
+            <div class="flex items-center gap-3 glass p-2 pr-6 rounded-br-2xl border-l-4 border-yellow-500 text-gray-800">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Pro" class="w-12 h-12 bg-gray-200 rounded border border-gray-300">
                 <div>
                     <div class="font-anton text-xl tracking-wider">FF_PLAYER</div>
-                    <div class="text-xs text-yellow-500 font-bold bg-black/50 px-1 rounded inline-block">LVL. 70</div>
+                    <div class="text-xs text-yellow-600 font-bold bg-yellow-100 px-2 rounded inline-block">LVL. 70</div>
                 </div>
             </div>
             <!-- Currency -->
             <div class="flex gap-4">
-                <div class="glass px-6 py-1 skew-box border border-yellow-500/50 shadow-[0_0_10px_rgba(255,215,0,0.2)]">
+                <div class="glass px-6 py-1 skew-box border border-yellow-500/50 shadow-sm">
                     <div class="unskew flex items-center gap-2">
-                        <img src="https://cdn-icons-png.flaticon.com/512/214/214309.png" class="w-5 h-5 invert sepia">
-                        <span id="gold" class="font-anton text-2xl text-yellow-400">24,500</span>
+                        <img src="https://cdn-icons-png.flaticon.com/512/214/214309.png" class="w-5 h-5 invert-0 sepia-0">
+                        <span id="gold" class="font-anton text-2xl text-yellow-600">24,500</span>
                     </div>
                 </div>
-                <div class="glass px-6 py-1 skew-box border border-blue-500/50 shadow-[0_0_10px_rgba(0,123,255,0.2)]">
+                <div class="glass px-6 py-1 skew-box border border-blue-500/50 shadow-sm">
                     <div class="unskew flex items-center gap-2">
-                        <i class="fas fa-gem text-blue-400 text-xl"></i>
-                        <span class="font-anton text-2xl text-blue-100">1,200</span>
+                        <i class="fas fa-gem text-blue-500 text-xl"></i>
+                        <span class="font-anton text-2xl text-blue-600">1,200</span>
                     </div>
                 </div>
             </div>
@@ -93,54 +102,56 @@
 
         <!-- INVITE BUTTON (RIGHT SIDE) -->
         <div class="absolute top-28 right-4 pointer-events-auto flex flex-col items-end gap-4">
-            <button onclick="openInvite()" class="group relative w-20 h-20 bg-gradient-to-br from-yellow-600 to-orange-700 rounded-xl border-2 border-white/50 shadow-xl flex flex-col items-center justify-center hover:scale-110 transition animate-pulse z-30">
-                <i class="fas fa-user-plus text-3xl mb-1 drop-shadow-md"></i>
-                <span class="text-[10px] bg-black px-2 rounded font-bold uppercase">Invite</span>
-                <div class="absolute -top-2 -left-2 w-6 h-6 bg-red-600 rounded-full border-2 border-white flex items-center justify-center font-bold text-xs shadow-lg">!</div>
+            <!-- White/Gold Button Scheme -->
+            <button onclick="openInvite()" class="group relative w-20 h-20 bg-gradient-to-br from-white to-gray-100 rounded-xl border-2 border-yellow-500 shadow-xl flex flex-col items-center justify-center hover:scale-110 transition animate-pulse z-30">
+                <i class="fas fa-user-plus text-3xl mb-1 text-yellow-600 drop-shadow-sm"></i>
+                <span class="text-[10px] bg-yellow-500 text-white px-2 rounded font-bold uppercase shadow-sm">Invite</span>
+                <div class="absolute -top-2 -left-2 w-6 h-6 bg-red-500 text-white rounded-full border-2 border-white flex items-center justify-center font-bold text-xs shadow-md">!</div>
             </button>
             
             <!-- Quick Icons -->
             <div class="flex flex-col gap-2 opacity-90">
-                <div class="w-12 h-12 bg-black/60 rounded border border-white/20 flex items-center justify-center"><i class="fas fa-calendar-check text-xl"></i></div>
-                <div class="w-12 h-12 bg-black/60 rounded border border-white/20 flex items-center justify-center"><i class="fas fa-trophy text-xl text-yellow-500"></i></div>
+                <div class="w-12 h-12 glass rounded border border-white flex items-center justify-center hover:bg-white transition"><i class="fas fa-calendar-check text-xl text-gray-600"></i></div>
+                <div class="w-12 h-12 glass rounded border border-white flex items-center justify-center hover:bg-white transition"><i class="fas fa-trophy text-xl text-yellow-500"></i></div>
             </div>
         </div>
 
         <!-- LEFT MENU -->
         <div class="absolute top-32 left-0 pointer-events-auto flex flex-col gap-3">
-            <div class="glass w-48 p-2 pl-4 border-l-4 border-yellow-500 hover:w-56 transition-all cursor-pointer"><span class="font-anton text-lg">STORE</span></div>
-            <div class="glass w-48 p-2 pl-4 border-l-4 border-purple-500 hover:w-56 transition-all cursor-pointer"><span class="font-anton text-lg text-purple-300">LUCK ROYALE</span></div>
-            <div class="glass w-48 p-2 pl-4 border-l-4 border-white hover:w-56 transition-all cursor-pointer"><span class="font-anton text-lg text-gray-300">VAULT</span></div>
+            <div class="glass w-48 p-2 pl-4 border-l-4 border-yellow-500 hover:w-56 transition-all cursor-pointer"><span class="font-anton text-lg text-gray-800">STORE</span></div>
+            <div class="glass w-48 p-2 pl-4 border-l-4 border-purple-500 hover:w-56 transition-all cursor-pointer"><span class="font-anton text-lg text-gray-800">LUCK ROYALE</span></div>
+            <div class="glass w-48 p-2 pl-4 border-l-4 border-gray-400 hover:w-56 transition-all cursor-pointer"><span class="font-anton text-lg text-gray-500">VAULT</span></div>
         </div>
 
         <!-- START BUTTON -->
         <div class="w-full flex justify-center pb-8 pointer-events-auto">
-            <button class="bg-gradient-to-r from-yellow-500 to-yellow-400 text-black px-20 py-5 skew-box shadow-[0_0_40px_rgba(255,215,0,0.6)] active:scale-95 transition transform hover:-translate-y-1">
+            <button class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 px-20 py-5 skew-box shadow-[0_10px_30px_rgba(255,215,0,0.3)] active:scale-95 transition transform hover:-translate-y-1 border-b-4 border-yellow-600">
                 <div class="unskew font-anton text-5xl tracking-widest drop-shadow-sm">START</div>
             </button>
         </div>
     </div>
 
     <!-- === INVITE MODAL === -->
-    <div id="invite-modal" class="hidden absolute inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center">
-        <div class="w-full max-w-4xl h-[85vh] bg-[#1a1c24] rounded-xl border border-yellow-500/30 flex relative pop-in shadow-2xl overflow-hidden">
-            <button onclick="closeInvite()" class="absolute top-4 right-4 text-gray-400 hover:text-white z-50 hover:bg-white/10 w-8 h-8 rounded-full flex items-center justify-center transition"><i class="fas fa-times text-xl"></i></button>
+    <div id="invite-modal" class="hidden absolute inset-0 z-50 bg-white/60 backdrop-blur-md flex items-center justify-center">
+        <!-- White Modal Container -->
+        <div class="w-full max-w-4xl h-[85vh] bg-white rounded-2xl border border-gray-200 flex relative pop-in shadow-2xl overflow-hidden ring-1 ring-black/5">
+            <button onclick="closeInvite()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 z-50 hover:bg-gray-100 w-8 h-8 rounded-full flex items-center justify-center transition"><i class="fas fa-times text-xl"></i></button>
 
             <!-- Left Image Panel -->
-            <div class="hidden md:block w-1/3 relative bg-black border-r border-white/10 overflow-hidden">
-                <img src="https://i.pinimg.com/736x/88/2c/3f/882c3f1559814457313838618776059d.jpg" class="object-cover h-full w-full opacity-50">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+            <div class="hidden md:block w-1/3 relative bg-gray-100 border-r border-gray-200 overflow-hidden">
+                <img src="https://i.pinimg.com/736x/88/2c/3f/882c3f1559814457313838618776059d.jpg" class="object-cover h-full w-full opacity-80 mix-blend-multiply">
+                <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>
                 <div class="absolute bottom-10 left-6">
-                    <h2 class="font-anton text-5xl text-yellow-500 italic leading-none mb-2">SQUAD<br>UP</h2>
-                    <p class="text-sm text-gray-300 font-bold border-l-2 border-yellow-500 pl-3">INVITE FRIENDS.<br>EARN LEGENDARY SKINS.</p>
+                    <h2 class="font-anton text-5xl text-yellow-500 italic leading-none mb-2 drop-shadow-sm">SQUAD<br>UP</h2>
+                    <p class="text-sm text-gray-600 font-bold border-l-4 border-yellow-500 pl-3">INVITE FRIENDS.<br>EARN LEGENDARY SKINS.</p>
                 </div>
             </div>
 
             <!-- List Panel -->
-            <div class="flex-1 flex flex-col bg-[#1e2129]">
-                <div class="p-5 border-b border-white/10 bg-[#252833] flex justify-between items-center shadow-md z-10">
-                    <h3 class="font-anton text-2xl text-white italic tracking-wide">ONLINE SURVIVORS</h3>
-                    <div class="bg-green-900/40 border border-green-500/30 text-green-400 text-xs font-bold px-3 py-1 rounded-full flex items-center gap-2">
+            <div class="flex-1 flex flex-col bg-gray-50">
+                <div class="p-5 border-b border-gray-200 bg-white flex justify-between items-center shadow-sm z-10">
+                    <h3 class="font-anton text-2xl text-gray-800 italic tracking-wide">ONLINE SURVIVORS</h3>
+                    <div class="bg-green-100 border border-green-200 text-green-600 text-xs font-bold px-3 py-1 rounded-full flex items-center gap-2">
                         <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span> 15 Active
                     </div>
                 </div>
@@ -149,22 +160,24 @@
                 </div>
 
                 <!-- REWARD POPUP (Layers over the list) -->
-                <div id="reward-overlay" class="hidden absolute inset-0 z-[60] bg-black/95 flex flex-col items-center justify-center text-center p-8">
-                    <div class="absolute inset-0 bg-[conic-gradient(transparent,transparent,#FFD700,transparent,transparent)] animate-[spin_6s_linear_infinite] opacity-20 pointer-events-none"></div>
+                <!-- White/Holy Theme Overlay -->
+                <div id="reward-overlay" class="hidden absolute inset-0 z-[60] bg-white/95 flex flex-col items-center justify-center text-center p-8">
+                    <!-- Light Burst Background -->
+                    <div class="absolute inset-0 bg-[conic-gradient(transparent,transparent,#fbbf24,transparent,transparent)] animate-[spin_6s_linear_infinite] opacity-30 pointer-events-none"></div>
                     
-                    <h2 class="font-anton text-6xl text-transparent bg-clip-text bg-gradient-to-b from-yellow-300 to-yellow-600 mb-2 drop-shadow-lg italic">REWARD UNLOCKED</h2>
-                    <p class="text-gray-400 font-mono tracking-[0.2em] text-sm mb-10 uppercase">Referral Successful</p>
+                    <h2 class="font-anton text-6xl text-transparent bg-clip-text bg-gradient-to-b from-yellow-400 to-yellow-700 mb-2 drop-shadow-sm italic">REWARD UNLOCKED</h2>
+                    <p class="text-gray-400 font-mono tracking-[0.2em] text-sm mb-10 uppercase font-bold">Referral Successful</p>
 
                     <!-- Reward Image Stage -->
-                    <div class="relative w-72 h-72 mb-8 floating flex items-center justify-center reward-card rounded-full">
-                        <div class="absolute inset-0 bg-yellow-500/30 blur-2xl rounded-full"></div>
-                        <img id="reward-img" src="" class="relative max-w-[120%] max-h-[120%] object-contain drop-shadow-[0_0_25px_rgba(255,215,0,0.8)] z-10 transition-transform hover:scale-105">
+                    <div class="relative w-72 h-72 mb-8 floating flex items-center justify-center reward-card rounded-full border border-yellow-100 bg-white shadow-lg">
+                        <div class="absolute inset-0 bg-yellow-400/20 blur-2xl rounded-full"></div>
+                        <img id="reward-img" src="" class="relative max-w-[120%] max-h-[120%] object-contain drop-shadow-xl z-10 transition-transform hover:scale-105">
                     </div>
 
-                    <div id="reward-name" class="text-3xl font-anton text-white mb-8 border-b-4 border-yellow-500 inline-block px-10 pb-2 tracking-wide">ITEM NAME</div>
+                    <div id="reward-name" class="text-3xl font-anton text-gray-800 mb-8 border-b-4 border-yellow-400 inline-block px-10 pb-2 tracking-wide">ITEM NAME</div>
 
-                    <button onclick="claimReward()" class="bg-yellow-500 hover:bg-white text-black font-anton text-3xl px-16 py-4 skew-box transition shadow-[0_0_30px_rgba(255,215,0,0.6)] hover:shadow-white/50">
-                        <div class="unskew">COLLECT</div>
+                    <button onclick="claimReward()" class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-anton text-3xl px-16 py-4 skew-box transition shadow-lg hover:shadow-xl border-b-4 border-yellow-600 active:border-b-0 active:translate-y-1">
+                        <div class="unskew">CLAIM NOW</div>
                     </button>
                 </div>
             </div>
@@ -173,7 +186,7 @@
 
     <script>
         // =================================================================
-        // CONFIGURATION WITH YOUR PROVIDED IMAGES
+        // CONFIGURATION 
         // =================================================================
         const ASSETS = {
             // Your Background
@@ -243,18 +256,18 @@
         function renderFriends() {
             const list = document.getElementById('friend-list');
             list.innerHTML = friends.map((f, i) => `
-                <div class="bg-[#2b2f3d] p-3 rounded-lg flex justify-between items-center border border-white/5 hover:bg-[#383d4f] hover:border-yellow-500/30 transition group shadow-sm">
+                <div class="bg-white p-3 rounded-lg flex justify-between items-center border border-gray-200 hover:border-yellow-400 hover:shadow-md transition group">
                     <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-gray-700 rounded-md border border-gray-500 overflow-hidden relative">
+                        <div class="w-12 h-12 bg-gray-100 rounded-md border border-gray-300 overflow-hidden relative shadow-inner">
                              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=${f.name}" class="w-full h-full">
-                             <div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border border-black"></div>
+                             <div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border border-white ring-1 ring-gray-200"></div>
                         </div>
                         <div>
-                            <div class="font-bold text-white text-lg font-anton tracking-wide">${f.name}</div>
-                            <div class="text-[10px] text-yellow-500 border border-yellow-500/30 bg-yellow-500/10 px-2 py-0.5 rounded inline-block font-bold tracking-wider">${f.rank}</div>
+                            <div class="font-bold text-gray-800 text-lg font-anton tracking-wide group-hover:text-yellow-600 transition-colors">${f.name}</div>
+                            <div class="text-[10px] text-yellow-600 border border-yellow-300 bg-yellow-50 px-2 py-0.5 rounded inline-block font-bold tracking-wider">${f.rank}</div>
                         </div>
                     </div>
-                    <button id="btn-${i}" onclick="invite(${i})" class="bg-white hover:bg-yellow-500 text-black font-anton px-6 py-2 text-lg skew-box transition transform active:scale-95 shadow-md">
+                    <button id="btn-${i}" onclick="invite(${i})" class="bg-gray-800 hover:bg-yellow-400 hover:text-gray-900 text-white font-anton px-6 py-2 text-lg skew-box transition transform active:scale-95 shadow-md">
                         <div class="unskew">INVITE</div>
                     </button>
                 </div>
@@ -271,7 +284,7 @@
             setTimeout(() => {
                 // Change to Sent
                 btn.innerHTML = '<div class="unskew">SENT</div>';
-                btn.className = "bg-gray-700 text-gray-500 font-anton px-6 py-2 text-lg skew-box cursor-default border border-gray-600";
+                btn.className = "bg-gray-200 text-gray-400 font-anton px-6 py-2 text-lg skew-box cursor-default border border-gray-300";
                 btn.onclick = null;
                 
                 // Show Reward
